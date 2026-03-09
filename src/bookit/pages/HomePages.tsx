@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { Button } from "../../components/ui/button";
 import { Badge } from "../../components/ui/badge";
 import { products } from "../../mocks/products.mock";
-
+import CategoryFilter from "../Components/CategoryFilter";
 
 export default function HomePage() {
   return (
@@ -30,20 +30,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex gap-3 overflow-x-auto pb-4 mb-6 scrollbar-hide">
-            {['Todos', 'Mobiliario', 'Iluminación', 'Sonido', 'Decoración', 'Carpas'].map((cat, i) => (
-              <button 
-                key={cat}
-                className={`px-5 py-2 rounded-full whitespace-nowrap text-sm font-medium transition-colors ${
-                  i === 0 
-                    ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/20' 
-                    : 'bg-white text-slate-600 border border-slate-200 hover:border-brand-primary/30 hover:bg-brand-primary/5'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+         
+          <CategoryFilter/>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map(product => (
