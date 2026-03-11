@@ -40,7 +40,7 @@ export default function DashboardLayout() {
         </div>
       </header>
 
-      <div className="flex flex-1 overflow-hidden max-w-[1920px] mx-auto w-full">
+      <div className="flex flex-1 overflow-hidden max-w-480 mx-auto w-full">
         {/* Sidebar */}
         <aside className="w-64 bg-white border-r border-slate-200 flex-col hidden md:flex overflow-y-auto">
           <div className="p-6 border-b border-slate-100">
