@@ -6,6 +6,7 @@ import Checkout from "../bookit/pages/Checkout";
 import AuthLayout from "../auth/layouts/AuthLayout";
 import LoginPage from "../auth/pages/LoginPage";
 import RegisterPage from "../auth/pages/RegisterPage";
+import DashboardLayout from "../bookit/pages/profileClient/DashboardClient";
 
 
 export const AppRouter = createBrowserRouter([
@@ -44,6 +45,18 @@ export const AppRouter = createBrowserRouter([
                 path: 'register',
                 element: <RegisterPage/>
             },
+        ]
+    },
+    // Auth routes
+    {
+        path:'/profile',
+        element: <DashboardLayout/>,
+        children: [
+            {
+                index: true,
+                element: <Navigate to="/DashboardLayout"/>
+            },
+           
         ]
     },
     {
