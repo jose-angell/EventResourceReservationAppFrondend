@@ -10,6 +10,7 @@ import DashboardLayout from "../bookit/pages/profileClient/DashboardClient";
 import DashboardOrders from "../bookit/dashboard/Orders";
 import Orders from "../bookit/dashboard/Orders";
 import OrdersDetails from "../bookit/dashboard/OrdersDetails";
+import DashboardHistory from "../bookit/dashboard/History";
 
 
 export const AppRouter = createBrowserRouter([
@@ -64,13 +65,16 @@ export const AppRouter = createBrowserRouter([
                 element: <DashboardOrders/>
             },
             {
-                path: 'Orders',
+                path: 'orders',
                 element: <Orders/>
             },
              {
-                path: 'Orders/:id',
-                element: <OrdersDetails
-                />
+                path: 'orders/:id',
+                element: <OrdersDetails/>
+            },
+            {
+                path: 'history',
+                element: <DashboardHistory/>
             },
         ]
     },
