@@ -1,21 +1,6 @@
+import type { Resource } from "../interfaces/Resource";
 
-
-
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-  description: string;
-  status: string;
-  statusColor: string;
-}
-
-
-
-
-export const products: Product[] = [
+export const products: Resource[] = [
   {
     id: 1,
     name: "Silla Chiavari Dorada",
