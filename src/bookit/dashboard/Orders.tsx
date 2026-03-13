@@ -14,7 +14,7 @@ export default function DashboardOrders() {
     <div className="max-w-5xl mx-auto space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-brand-text-dark mb-2 tracking-tight">Mis Pedidos</h1>
+          <h1 className="text-3xl font-bold text-brand-text-dark mb-2 tracking-tight">Mis Pedidos 2</h1>
           <p className="text-slate-500">Historial completo de tus reservas y alquileres.</p>
         </div>
         <div className="flex gap-2">
@@ -66,7 +66,7 @@ export default function DashboardOrders() {
                     </Badge>
                   </td>
                   <td className="p-6 text-right">
-                    <Link to={`/dashboard/orders/${order.id}`}>
+                    <Link to={`/profile/orders/${order.id}`}>
                       <Button variant="outline" className="rounded-xl border-slate-200 text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5">
                         Ver Detalles
                       </Button>

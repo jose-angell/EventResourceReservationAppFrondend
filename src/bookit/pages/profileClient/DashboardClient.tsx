@@ -3,12 +3,12 @@ import { Link, Outlet,useLocation } from "react-router";
 
 
 const navItems = [
-  { path: '/dashboard', icon: 'dashboard', label: 'Panel Principal' },
-  { path: '/dashboard/orders', icon: 'list_alt', label: 'Mis Pedidos' },
-  { path: '/dashboard/profile', icon: 'person', label: 'Editar Perfil' },
-  { path: '/dashboard/security', icon: 'security', label: 'Seguridad' },
-  { path: '/dashboard/payment-methods', icon: 'credit_card', label: 'Métodos de Pago' },
-  { path: '/dashboard/history', icon: 'history', label: 'Historial de Actividad' },
+  { path: '/profile', icon: 'dashboard', label: 'Panel Principal' },
+  { path: '/profile/orders', icon: 'list_alt', label: 'Mis Pedidos' },
+  { path: '/profile/client', icon: 'person', label: 'Editar Perfil' },
+  { path: '/profile/security', icon: 'security', label: 'Seguridad' },
+  { path: '/profile/payment-methods', icon: 'credit_card', label: 'Métodos de Pago' },
+  { path: '/profile/history', icon: 'history', label: 'Historial de Actividad' },
 ];
 
 export default function DashboardLayout() {

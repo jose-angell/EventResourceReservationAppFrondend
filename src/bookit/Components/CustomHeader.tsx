@@ -20,7 +20,7 @@ export default function CustomHeader() {
           <button className="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 text-slate-600 transition-colors">
             <span className="material-symbols-outlined">search</span>
           </button>
-          <Link to="/dashboard" className="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 text-slate-600 transition-colors">
+          <Link to="/profile" className="flex items-center justify-center size-10 rounded-full hover:bg-slate-100 text-slate-600 transition-colors">
             <span className="material-symbols-outlined">account_circle</span>
           </Link>
           <div className="lg:hidden">
