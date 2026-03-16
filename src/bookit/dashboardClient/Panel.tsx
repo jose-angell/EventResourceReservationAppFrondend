@@ -137,7 +137,7 @@ export default function DashboardPanel() {
             </div>
           </div>
 
-          <div className="bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-3xl p-6 text-white shadow-lg shadow-brand-primary/20 relative overflow-hidden">
+          <div className="bg-linear-to-br from-brand-primary to-brand-primary-dark rounded-3xl p-6 text-slate-600 shadow-lg shadow-brand-primary/20 relative overflow-hidden">
             <div className="absolute -top-10 -right-10 size-32 bg-white/10 rounded-full blur-2xl"></div>
             <div className="absolute -bottom-10 -left-10 size-32 bg-brand-secondary/20 rounded-full blur-2xl"></div>
             <div className="relative z-10">

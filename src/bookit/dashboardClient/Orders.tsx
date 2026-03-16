@@ -1,12 +1,13 @@
 import { Link } from "react-router";
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../components/ui/table";
 
 const orders = [
-  { id: 'ORD-8001', date: '12 Oct 2023', total: 450.00, status: 'En proceso', statusColor: 'bg-brand-accent text-white', items: 12 },
-  { id: 'ORD-8002', date: '05 Sep 2023', total: 1250.00, status: 'Completado', statusColor: 'bg-brand-secondary text-white', items: 45 },
-  { id: 'ORD-8003', date: '22 Ago 2023', total: 320.00, status: 'Cancelado', statusColor: 'bg-brand-alert text-white', items: 8 },
-  { id: 'ORD-8004', date: '15 Jul 2023', total: 890.00, status: 'Completado', statusColor: 'bg-brand-secondary text-white', items: 24 },
+  { id: 'ORD-8001', date: '12 Oct 2023', total: 450.00, status: 'En proceso', statusColor: 'bg-accent text-slate-600', items: 12 },
+  { id: 'ORD-8002', date: '05 Sep 2023', total: 1250.00, status: 'Completado', statusColor: 'bg-brand-secondary text-slate-600', items: 45 },
+  { id: 'ORD-8003', date: '22 Ago 2023', total: 320.00, status: 'Cancelado', statusColor: 'bg-brand-alert text-slate-600', items: 8 },
+  { id: 'ORD-8004', date: '15 Jul 2023', total: 890.00, status: 'Completado', statusColor: 'bg-brand-secondary text-slate-600', items: 24 },
 ];
 
 export default function DashboardOrders() {
@@ -31,51 +32,51 @@ export default function DashboardOrders() {
 
       <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-slate-50/50 border-b border-slate-100 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                <th className="p-6">ID Pedido</th>
-                <th className="p-6">Fecha</th>
-                <th className="p-6">Artículos</th>
-                <th className="p-6">Total</th>
-                <th className="p-6">Estado</th>
-                <th className="p-6 text-right">Acciones</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
+          <Table className="w-full text-left border-collapse">
+            <TableHeader>
+              <TableRow className="bg-slate-50/50 border-b border-slate-100 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                <TableHead className="p-6">ID Pedido</TableHead>
+                <TableHead className="p-6">Fecha</TableHead>
+                <TableHead className="p-6">Artículos</TableHead>
+                <TableHead className="p-6">Total</TableHead>
+                <TableHead className="p-6">Estado</TableHead>
+                <TableHead className="p-6 text-right">Acciones</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody className="divide-y divide-slate-100">
               {orders.map((order) => (
-                <tr key={order.id} className="hover:bg-slate-50 transition-colors group">
-                  <td className="p-6">
+                <TableRow key={order.id} className="hover:bg-slate-50 transition-colors group">
+                  <TableCell className="p-6">
                     <span className="font-bold text-brand-text-dark">{order.id}</span>
-                  </td>
-                  <td className="p-6">
+                  </TableCell>
+                  <TableCell className="p-6">
                     <span className="text-sm text-slate-500 flex items-center gap-2">
                       <span className="material-symbols-outlined text-[16px]">calendar_today</span>
                       {order.date}
                     </span>
-                  </td>
-                  <td className="p-6">
+                  </TableCell>
+                  <TableCell className="p-6">
                     <span className="text-sm font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-full">{order.items} items</span>
-                  </td>
-                  <td className="p-6">
+                  </TableCell>
+                  <TableCell className="p-6">
                     <span className="font-bold text-brand-text-dark">${order.total.toFixed(2)}</span>
-                  </td>
-                  <td className="p-6">
+                  </TableCell>
+                  <TableCell className="p-6">
                     <Badge className={`${order.statusColor} border-none font-medium px-3 py-1`}>
                       {order.status}
                     </Badge>
-                  </td>
-                  <td className="p-6 text-right">
+                  </TableCell>
+                  <TableCell className="p-6 text-right">
                     <Link to={`/profile/orders/${order.id}`}>
                       <Button variant="outline" className="rounded-xl border-slate-200 text-slate-600 hover:text-brand-primary hover:bg-brand-primary/5">
                         Ver Detalles
                       </Button>
                     </Link>
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
         
         {/* Pagination */}

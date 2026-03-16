@@ -47,7 +47,7 @@ export default function DashboardLayout() {
             <h2 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Mi Cuenta</h2>
             <nav className="space-y-1">
               {navItems.map((item) => {
-                const isActive = location.pathname === item.path || (item.path !== '/dashboard' && location.pathname.startsWith(item.path));
+                const isActive = location.pathname === item.path || (item.path !== '/profile' && location.pathname.startsWith(item.path));
                 return (
                   <Link 
                     key={item.path} 

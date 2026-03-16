@@ -7,13 +7,13 @@ import AuthLayout from "../auth/layouts/AuthLayout";
 import LoginPage from "../auth/pages/LoginPage";
 import RegisterPage from "../auth/pages/RegisterPage";
 import DashboardLayout from "../bookit/pages/profileClient/DashboardClient";
-import DashboardOrders from "../bookit/dashboard/Orders";
-import OrdersDetails from "../bookit/dashboard/OrdersDetails";
-import DashboardHistory from "../bookit/dashboard/History";
-import DashboardPanel from "../bookit/dashboard/Panel";
-import DashboardProfile from "../bookit/dashboard/Profile";
-import DashboardPayment from "../bookit/dashboard/Payment";
-import DashboardSecurity from "../bookit/dashboard/Security";
+import DashboardOrders from "../bookit/dashboardClient/Orders";
+import OrdersDetails from "../bookit/dashboardClient/OrdersDetails";
+import DashboardHistory from "../bookit/dashboardClient/History";
+import DashboardPanel from "../bookit/dashboardClient/Panel";
+import DashboardProfile from "../bookit/dashboardClient/Profile";
+import DashboardPayment from "../bookit/dashboardClient/Payment";
+import DashboardSecurity from "../bookit/dashboardClient/Security";
 
 
 export const AppRouter = createBrowserRouter([

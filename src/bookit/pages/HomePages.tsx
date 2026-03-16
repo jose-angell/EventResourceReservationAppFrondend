@@ -7,7 +7,7 @@ import { CarBookit } from "../Components/CarBookit";
 export default function HomePage() {
   return (
     <main className="flex flex-1 h-[calc(100vh-64px)] overflow-hidden">
-      <div className="flex-1 flex flex-col overflow-y-auto bg-brand-surface-light">
+      <div className="flex-1 flex flex-col overflow-y-auto bg-surface-light dark:bg-background-dark">
         <div className="p-6 lg:p-10 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between mb-10">
             <div>
