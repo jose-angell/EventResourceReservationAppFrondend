@@ -6,14 +6,14 @@ import { SearchSection } from "../Components/SearchSection";
 export default function HomePage() {
   return (
     <>
-    {/* Main Content */}
-    <div className="flex-1 flex flex-col overflow-y-auto bg-surface-light dark:bg-background-dark">
-      <SearchSection />
-      <ProductGrid />
-    </div>
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col overflow-y-auto bg-surface-light dark:bg-background-dark">
+        <SearchSection />
+        <ProductGrid />
+      </div>
 
-    {/* Cart Sidebar */}
-    <CartSidebar />
+      {/* Cart Sidebar */}
+      <CartSidebar />
     </>
   );
 }

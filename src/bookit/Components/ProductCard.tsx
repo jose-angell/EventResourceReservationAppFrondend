@@ -3,6 +3,7 @@ import { Heart, ArrowRight } from "lucide-react"
 import { Card } from "../../components/ui/card"
 import { Badge } from "../../components/ui/badge"
 import { Button } from "../../components/ui/button"
+import { Link } from "react-router"
 
 export interface Product {
   id: number
@@ -64,7 +65,9 @@ export function ProductCard({ product }: ProductCardProps) {
               ${product.pricePerDay.toFixed(2)}
             </span>
           </div>
-          <Button className="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-bold uppercase tracking-wide transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2">
+          <Button
+          render={<Link to={`/resource/${product.id}`}  />}
+          className="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-bold uppercase tracking-wide transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2">
             <span>Reservar ahora</span>
             <ArrowRight className="size-5" />
           </Button>

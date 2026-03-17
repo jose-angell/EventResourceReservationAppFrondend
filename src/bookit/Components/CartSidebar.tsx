@@ -49,7 +49,7 @@ export function CartSidebar() {
     0
   )
   const subtotal = subtotalPerDay * rentalDays
-  const tax = subtotal * 0.16
+  const tax = subtotal * 0.19
   const total = subtotal + tax
 
   const handleIncrement = (id: number) => {
@@ -121,7 +121,7 @@ export function CartSidebar() {
             <span>x {rentalDays}</span>
           </div>
           <div className="flex justify-between text-sm text-slate-500 dark:text-slate-400">
-            <span>Seguro e IVA (21%)</span>
+            <span>Seguro e IVA (19%)</span>
             <span>${tax.toFixed(2)}</span>
           </div>
         </div>
