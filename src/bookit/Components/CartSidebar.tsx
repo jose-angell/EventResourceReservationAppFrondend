@@ -2,6 +2,7 @@ import { Receipt, Calendar, ArrowRight, Lock } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { CartItemSidebar } from "./CarItemSidebar"
 import { useState } from "react"
+import { Link } from "react-router"
 
 interface CartItem {
   id: number
@@ -132,9 +133,11 @@ export function CartSidebar() {
             ${total.toFixed(2)}
           </span>
         </div>
-        <Button className="w-full h-12 shadow-lg shadow-primary/20 group text-white">
+        <Button 
+        render={<Link to="/checkout" />}
+        className="w-full h-12 shadow-lg shadow-primary/20 group text-white">
           <span>Tramitar Reserva</span>
-          <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+          <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
         </Button>
         <p className="text-center text-xs text-slate-400 mt-3 flex items-center justify-center gap-1">
           <Lock className="size-3" /> Pago 100% Seguro
