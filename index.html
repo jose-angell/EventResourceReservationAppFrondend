@@ -5,48 +5,11 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BookIt - Marketplace de Eventos</title>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#005f73","primary-dark": "#004959",
-                        "accent": "#ee9b00","secondary": "#0a9396","alert": "#9b2226","background-light": "#ffffff",
-                        "background-dark": "#001219","surface-light": "#f5f7f8",
-                        "surface-dark": "#0e232e",
-                        "text-dark": "#001219",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"],
-                        "body": ["Manrope", "sans-serif"],
-                    },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
-                },
-            },
-        }
-    </script>
-  <style>::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 20px;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background-color: #475569;
-        }
-    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-surface-light dark:bg-background-dark text-text-dark dark:text-slate-100 font-display antialiased min-h-screen flex flex-col overflow-hidden">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
