@@ -1,203 +1,239 @@
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
+import { Input } from "../../components/ui/input"
+import { Button } from "../../components/ui/button"
+import { 
+  Calendar, 
+  Clock, 
+  Shield, 
+  ArrowRight  } from "lucide-react"
 
+const cartItems = [
+  {
+    id: 1,
+    name: "Silla Chiavari Dorada",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAKOB8LgFxbrzQEWNgvJHAFyAyJO4oxJ6S8spSsbb6qdGbhWytUMuoIhWUBuw7POmVpZalespo-0VKGF46rdTBU22xFoo6oO5Yl2DdjRqqcp4TnE4rFL3wcH7Vu44nCTPkU4k6_t2QtXIOOVV6Pu1hyIIq5tvbA0gMVv5f6U3BlE4o4oYX6um70O_IHjV3IYl32Fcxl_jXQoyKyvUuGaoidUc8IZoaJi5_39I9tdHnVgyi5amMm4sBhjMQ9hbsToQ7CAblTEHhl9Pt1",
+    quantity: 50,
+    pricePerDay: 5.00,
+    days: 3,
+    total: 750.00
+  },
+  {
+    id: 2,
+    name: "Mesa Imperial Rustica",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCYhoB8KMUZi6EuZ_BktpBXFGeogzlos9meNvGIipA3qOs2Wh-TAFDTT4LsZOV2aklLFRZKA_igNmF2TlB7xlH0kxPf9_vl8_ZY_AT7SzQOSa9NfJcnepDYSH0g3LRS2NtJ-ud44PwcPSmJyFYcRNSuq2U31IfKkdYI0ZqiP7HM0GeEjr7ijpxnz9wBw0OCtgRyfr9QsY79ZZ9U7tUKHUeA6jKO48QEg0SU2X7rDnw_4zHROx33F8-xrIo8GobcpIRzb3hsMKkmmqSt",
+    quantity: 5,
+    pricePerDay: 85.00,
+    days: 3,
+    total: 1275.00
+  },
+  {
+    id: 3,
+    name: "Kit Luces LED",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBwmm27Bl--YAkVYk0lrYpzeMlHIzmNjO2H4OgU53rfsXUvK9zmgk-f1AJsIXi9ocd-Y-_Sa7KmYoNvSxkjlSKAO7DrYdSlYGqXg2SpP4MXQ3ElXhVRS2x0c5eqBFbJakwB51mUBkY8C02I-syKyW9rYOKZMzljfWgkhq-H3v1U4D_wxnSCtkEWGenwzkbv2-StHliw9SZTfk4ZwZ1MQYT0jFv4PGwk7ca-QtcyqSejyNjuHmjxLdu_qSUl7hwKwsMBUw_k0Mdl9a2Z",
+    quantity: 2,
+    pricePerDay: 45.00,
+    days: 3,
+    total: 270.00
+  }
+]
 
-export default function Checkout() {
+const subtotal = cartItems.reduce((acc, item) => acc + item.total, 0)
+const tax = subtotal * 0.21
+const total = subtotal + tax
+
+export function Checkout() {
   return (
-    <main className="flex-1 bg-brand-surface-light py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Progress Steps */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10 relative">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-slate-200 -z-10 hidden md:block"></div>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1/2 h-1 bg-brand-primary -z-10 hidden md:block"></div>
-          
-          <div className="flex flex-col items-center gap-2 bg-brand-surface-light px-4">
-            <div className="size-10 rounded-full bg-[#0a8284] text-white flex items-center justify-center font-bold shadow-md shadow-brand-primary/20">
-              <span className="material-symbols-outlined text-[20px] text-white">check</span>
-            </div>
-            <span className="text-sm font-semibold text-brand-primary">Presupuesto</span>
-          </div>
-          
-          <div className="flex flex-col items-center gap-2 bg-brand-surface-light px-4">
-            <div className="size-10 rounded-full bg-[#0a8284] text-white flex items-center justify-center font-bold shadow-md shadow-brand-primary/20">
-              2
-            </div>
-            <span className="text-sm font-semibold text-brand-primary">Detalles del Evento</span>
-          </div>
-          
-          <div className="flex flex-col items-center gap-2 bg-brand-surface-light px-4">
-            <div className="size-10 rounded-full bg-[#0a8284] border-2 border-slate-200 text-white flex items-center justify-center font-bold">
-              3
-            </div>
-            <span className="text-sm font-medium text-slate-500">Confirmación</span>
-          </div>
-        </div>
+    <div className="min-h-screen bg-surface flex flex-col w-full">
+      
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
-              <h2 className="text-2xl font-bold text-brand-text-dark mb-6 flex items-center gap-2">
-                <span className="material-symbols-outlined text-brand-primary">event</span>
-                Información del Evento
+      {/* Main Content */}
+      <main className="max-w-300 mx-auto px-6 py-10 flex-1">
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Left Column - Form */}
+          <div className="flex-1 space-y-10">
+            {/* Shipping Information */}
+            <div>
+              <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                <span className="bg-primary text-primary-foreground size-8 rounded-full flex items-center justify-center text-sm">1</span>
+                Información de Envío
               </h2>
-              
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-brand-text-dark mb-2" htmlFor="eventType">Tipo de Evento</label>
-                    <div className="relative">
-                      <select id="eventType" className="w-full pl-4 pr-10 py-3 rounded-xl border-slate-200 focus:border-brand-primary focus:ring-brand-primary/20 bg-slate-50/50 hover:bg-white transition-colors appearance-none">
-                        <option value="">Selecciona una opción</option>
-                        <option value="wedding">Boda</option>
-                        <option value="corporate">Evento Corporativo</option>
-                        <option value="party">Fiesta Privada</option>
-                        <option value="other">Otro</option>
-                      </select>
-                      <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">expand_more</span>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-brand-text-dark mb-2" htmlFor="guests">Número de Invitados (Aprox.)</label>
-                    <div className="relative">
-                      <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">group</span>
-                      <Input id="guests" type="number" placeholder="Ej. 150" className="w-full pl-11 pr-4 py-3 rounded-xl border-slate-200 focus:border-brand-primary focus:ring-brand-primary/20 bg-slate-50/50 hover:bg-white transition-colors h-auto" />
-                    </div>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-semibold text-foreground/80 mb-2">Dirección de Entrega</label>
+                  <Input 
+                    className="w-full px-4 py-3" 
+                    placeholder="Calle, número, departamento..." 
+                  />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-brand-text-dark mb-2" htmlFor="startDate">Fecha de Inicio</label>
-                    <div className="relative">
-                      <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">calendar_today</span>
-                      <Input id="startDate" type="date" className="w-full pl-11 pr-4 py-3 rounded-xl border-slate-200 focus:border-brand-primary focus:ring-brand-primary/20 bg-slate-50/50 hover:bg-white transition-colors h-auto" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-brand-text-dark mb-2" htmlFor="endDate">Fecha de Finalización</label>
-                    <div className="relative">
-                      <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">event_available</span>
-                      <Input id="endDate" type="date" className="w-full pl-11 pr-4 py-3 rounded-xl border-slate-200 focus:border-brand-primary focus:ring-brand-primary/20 bg-slate-50/50 hover:bg-white transition-colors h-auto" />
-                    </div>
-                  </div>
-                </div>
-
                 <div>
-                  <label className="block text-sm font-semibold text-brand-text-dark mb-2" htmlFor="address">Dirección del Evento</label>
+                  <label className="block text-sm font-semibold text-foreground/80 mb-2">Ciudad / Estado</label>
+                  <Input 
+                    className="w-full px-4 py-3" 
+                    placeholder="Ej. Ciudad de México" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-foreground/80 mb-2">Código Postal</label>
+                  <Input 
+                    className="w-full px-4 py-3" 
+                    placeholder="00000" 
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-foreground/80 mb-2">Fecha de Entrega</label>
                   <div className="relative">
-                    <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">location_on</span>
-                    <Input id="address" type="text" placeholder="Calle, número, ciudad, código postal" className="w-full pl-11 pr-4 py-3 rounded-xl border-slate-200 focus:border-brand-primary focus:ring-brand-primary/20 bg-slate-50/50 hover:bg-white transition-colors h-auto" />
+                    <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground size-5" />
+                    <Input 
+                      className="w-full px-4 py-3 pr-10" 
+                      defaultValue="Oct 24, 2023" 
+                    />
                   </div>
                 </div>
-
                 <div>
-                  <label className="block text-sm font-semibold text-brand-text-dark mb-2" htmlFor="notes">Notas Adicionales (Opcional)</label>
-                  <textarea id="notes" rows={4} placeholder="Instrucciones especiales para el montaje, horarios de acceso, etc." className="w-full p-4 rounded-xl border-slate-200 focus:border-brand-primary focus:ring-brand-primary/20 bg-slate-50/50 hover:bg-white transition-colors resize-none border"></textarea>
+                  <label className="block text-sm font-semibold text-foreground/80 mb-2">Hora de Entrega</label>
+                  <div className="relative">
+                    <Clock className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground size-5" />
+                    <select className="w-full bg-background border border-input rounded-lg px-4 py-3 text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+                      <option>09:00 AM - 12:00 PM</option>
+                      <option>12:00 PM - 03:00 PM</option>
+                      <option>03:00 PM - 06:00 PM</option>
+                    </select>
+                  </div>
                 </div>
-              </form>
+              </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
-              <h2 className="text-2xl font-bold text-brand-text-dark mb-6 flex items-center gap-2">
-                <span className="material-symbols-outlined text-brand-primary">local_shipping</span>
-                Opciones de Entrega
+            {/* Payment Method */}
+            <div className="pt-6 border-t border-border">
+              <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                <span className="bg-primary text-primary-foreground size-8 rounded-full flex items-center justify-center text-sm">2</span>
+                Método de Pago
               </h2>
-              
               <div className="space-y-4">
-                <label className="flex items-start gap-4 p-4 rounded-2xl border-2 border-brand-primary bg-brand-primary/5 cursor-pointer transition-colors">
-                  <input type="radio" name="delivery" defaultChecked className="mt-1 size-5 text-brand-primary focus:ring-brand-primary border-slate-300" />
-                  <div className="flex-1">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-bold text-brand-text-dark">Entrega y Montaje</span>
-                      <span className="font-bold text-brand-primary">+$150.00</span>
+                {/* Credit Card Option */}
+                <label className="relative flex items-center p-4 border border-border rounded-xl cursor-pointer hover:bg-muted/50 transition-colors group">
+                  <input 
+                    defaultChecked 
+                    className="text-primary focus:ring-primary h-4 w-4 border-border" 
+                    name="payment" 
+                    type="radio" 
+                  />
+                  <div className="ml-4 flex-1">
+                    <span className="block text-sm font-bold text-foreground">Tarjeta de Crédito / Débito</span>
+                    <div className="flex gap-2 mt-2">
+                      <img alt="Visa" className="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmRfTpLfFqIRlNh13kL1KXd8oWAUJ0usZHflJB2g8M2Ts2cI00yvxxPk5Rk3GTZ13SJGt8ttLnSn8SICWTHrYYRS7DoIUweETet0wiB9yYBCRt-aISNEs54VxIYm0Tb_Q5V_VPzRJm0q58WImGqe0EPOpEoz3E3AUCjwguFLjdEa-VzrZTG8vQZAYiZfTvNiM_M-k16LVxXRT3AtkHw4VUrTgM6MygDVzPIvJfI8F_-h_oRmBqQDt3sqBvxfdem2mJUaTd7lB_sw4S" />
+                      <img alt="Mastercard" className="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBj4UtdNY453IzI5KDZF8nhn5gab_ExVM3sUXawcSFA3X-Sk66S3WvqYbw8YVUaxZ5Z4K70_VHo33v3xQrgNOV3Xwy0lt_FWzlNNqdNeON6CWqW6f1XuqIrFw26kc7g8a6wtcQ6aKj4moCriLHBgn6T6-JExfKxQ_SMkj4uZR_wExBE1GgrslebbxukCiI0RFEDs6ny71UZ2HOhusMOdzw0g6ctJucBOD9fsUZkzs46q-OkYYw7Dxl29VrJVmoT62SZ4JTUEdAh1Ot" />
                     </div>
-                    <p className="text-sm text-slate-500">Nuestro equipo entregará, montará y recogerá el material en el lugar del evento.</p>
                   </div>
                 </label>
-                
-                <label className="flex items-start gap-4 p-4 rounded-2xl border-2 border-slate-200 hover:border-brand-primary/50 bg-white cursor-pointer transition-colors">
-                  <input type="radio" name="delivery" className="mt-1 size-5 text-brand-primary focus:ring-brand-primary border-slate-300" />
-                  <div className="flex-1">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-bold text-brand-text-dark">Recogida en Almacén</span>
-                      <span className="font-bold text-brand-secondary">Gratis</span>
-                    </div>
-                    <p className="text-sm text-slate-500">Recoge y devuelve el material tú mismo en nuestras instalaciones (Calle Principal 123).</p>
+
+                {/* Card Details Form */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 bg-background p-6 rounded-xl border border-border">
+                  <div className="md:col-span-2">
+                    <label className="block text-xs font-bold text-muted-foreground uppercase mb-2">Número de Tarjeta</label>
+                    <Input 
+                      className="w-full px-4 py-3" 
+                      placeholder="0000 0000 0000 0000" 
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-muted-foreground uppercase mb-2">Fecha Expiración</label>
+                    <Input 
+                      className="w-full px-4 py-3" 
+                      placeholder="MM/YY" 
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-muted-foreground uppercase mb-2">CVC</label>
+                    <Input 
+                      className="w-full px-4 py-3" 
+                      placeholder="123" 
+                    />
+                  </div>
+                </div>
+
+                {/* PayPal Option */}
+                <label className="relative flex items-center p-4 border border-border rounded-xl cursor-pointer hover:bg-muted/50 transition-colors">
+                  <input 
+                    className="text-primary focus:ring-primary h-4 w-4 border-border" 
+                    name="payment" 
+                    type="radio" 
+                  />
+                  <div className="ml-4 flex items-center gap-2">
+                    <span className="block text-sm font-bold text-foreground">PayPal</span>
+                    <img alt="PayPal" className="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB93tZfXCsgtjTKjuTLhGA_bqi92Ksh1boWnPc-crAEtwfc15FDNNW51OECn_DztpxRn1rto4m0ec9bl1yvMQNqt55oWtRaCWc6mWXHCf7YGN7UMRWp0LuvFGEvG3De9J565_P4tw_jjhn7XZD2q0zPsSKNjnMHkEvsB68DkP7Irmslehht-pyZ8mGC-MXXthjzE6ANs25JDd-8wvAHrB4mHQ25AtqlPjLx6VW_HAkTkUk03fS_VeMR4qzEAOQu3UIxVRNeIH88g2ng" />
                   </div>
                 </label>
               </div>
             </div>
           </div>
 
-          {/* Order Summary */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 sticky top-24">
-              <h3 className="text-xl font-bold text-brand-text-dark mb-6">Resumen de Reserva</h3>
-              
-              <div className="space-y-4 mb-6">
-                <div className="flex gap-3">
-                  <div className="size-16 rounded-xl bg-slate-100 overflow-hidden shrink-0">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuECGXSMUh1Ql5OygbDoXYci-Cg0PZRL1Dkdepdf-tCiibM0LjcTpP8wOvgJ9JWn0xP6hqSFEwyIyIlAxHt-oi1z4bUgS4gPXrGQUHi35TLnk6-re0WICU3F5ExzV4Ai388SHxHPujzAZuitXlcCX03SMi6RjI57aZe7tndULQzTgiMbiB99074TNWeIZlEqBDSiW45jE1r0vhhHpQR1TdGYgQVdMJhF1R2pb-Rh67uNOzsY-B8oRi-7r8DhGt0wpdvrFg1ujGCEB2" alt="Item" className="w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-sm text-brand-text-dark line-clamp-1">Silla Chiavari Dorada</h4>
-                    <div className="text-xs text-slate-500 mb-1">Cant: 50 x 3 días</div>
-                    <div className="font-bold text-brand-primary text-sm">$250.00</div>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="size-16 rounded-xl bg-slate-100 overflow-hidden shrink-0">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA15zF8p2C9I8Z6P3W0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0M1J6Y9T4V7E5R2O8L9K3N0" alt="Item" className="w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-sm text-brand-text-dark line-clamp-1">Mesa Imperial</h4>
-                    <div className="text-xs text-slate-500 mb-1">Cant: 5 x 3 días</div>
-                    <div className="font-bold text-brand-primary text-sm">$375.00</div>
-                  </div>
-                </div>
+          {/* Right Column - Order Summary */}
+          <div className="w-full lg:w-105 shrink-0">
+            <div className="bg-background rounded-2xl border border-border shadow-xl overflow-hidden sticky top-24">
+              <div className="p-6 border-b border-border">
+                <h3 className="text-lg font-bold text-foreground">Mi Presupuesto</h3>
+                <p className="text-sm text-muted-foreground mt-1">Revisa los detalles de tu reserva</p>
               </div>
 
-              <div className="space-y-3 mb-6 pt-6 border-t border-slate-100">
-                <div className="flex justify-between text-sm text-slate-500">
-                  <span>Subtotal (3 días)</span>
-                  <span className="font-medium text-brand-text-dark">$625.00</span>
-                </div>
-                <div className="flex justify-between text-sm text-slate-500">
-                  <span>Depósito de garantía (Reembolsable)</span>
-                  <span className="font-medium text-brand-text-dark">$150.00</span>
-                </div>
-                <div className="flex justify-between text-sm text-slate-500">
-                  <span>Entrega y Montaje</span>
-                  <span className="font-medium text-brand-text-dark">$150.00</span>
-                </div>
-                <div className="flex justify-between text-sm text-brand-secondary font-medium">
-                  <span>Descuento Promocional</span>
-                  <span>-$50.00</span>
-                </div>
-                <div className="h-px bg-slate-200 my-2"></div>
-                <div className="flex justify-between items-end">
-                  <div>
-                    <span className="block text-sm text-slate-500 font-medium mb-1">Total a Pagar</span>
-                    <span className="text-xs text-slate-400">Impuestos incluidos</span>
+              {/* Cart Items */}
+              <div className="p-6 space-y-6 max-h-100 overflow-y-auto">
+                {cartItems.map((item) => (
+                  <div key={item.id} className="flex gap-4">
+                    <div className="w-16 h-16 rounded-lg bg-muted overflow-hidden shrink-0 border border-border">
+                      <img 
+                        alt={item.name} 
+                        className="w-full h-full object-cover" 
+                        src={item.image} 
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-sm font-bold text-foreground">{item.name}</h4>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Cant: {item.quantity} x ${item.pricePerDay.toFixed(2)}/día
+                      </p>
+                      <div className="flex justify-between items-end mt-2">
+                        <span className="text-xs font-medium text-primary">{item.days} días</span>
+                        <span className="text-sm font-bold text-foreground">${item.total.toFixed(2)}</span>
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-3xl font-bold text-brand-primary">$875.00</span>
-                </div>
+                ))}
               </div>
 
-              <Button className="w-full  bg-[#0a8284]  hover:text-slate-600 text-white rounded-xl py-6 text-base font-semibold shadow-lg shadow-brand-primary/20 mb-4">
-                Confirmar y Pagar
-                <span className="material-symbols-outlined ml-2">lock</span>
-              </Button>
-              
-              <div className="flex items-center justify-center gap-2 text-xs text-slate-400">
-                <span className="material-symbols-outlined text-[16px]">verified_user</span>
-                <span>Transacción encriptada y segura</span>
+              {/* Totals */}
+              <div className="p-6 bg-muted/50 space-y-3">
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>Subtotal</span>
+                  <span>${subtotal.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-sm text-muted-foreground">
+                  <span>Seguro e IVA (21%)</span>
+                  <span>${tax.toFixed(2)}</span>
+                </div>
+                <div className="pt-4 mt-2 border-t border-border flex justify-between items-center">
+                  <span className="text-base font-bold text-foreground">Total a Pagar</span>
+                  <span className="text-2xl font-extrabold text-accent">${total.toFixed(2)}</span>
+                </div>
+                <Button className="w-full mt-6 py-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-3 group uppercase tracking-widest text-sm">
+                  Confirmar y Pagar
+                  <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <div className="mt-4 flex flex-col items-center gap-2">
+                  <div className="flex items-center gap-1 text-[10px] text-muted-foreground font-medium uppercase">
+                    <Shield className="size-4" />
+                    Garantía de satisfacción BookIt
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-  );
+      </main>
+
+      {/* Footer */}
+      <footer className="mt-auto py-10 border-t border-border text-center">
+        <p className="text-sm text-muted-foreground">© 2023 BookIt Marketplace. Todos los derechos reservados.</p>
+      </footer>
+    </div>
+  )
 }
