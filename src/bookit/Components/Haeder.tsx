@@ -1,5 +1,6 @@
 import { PartyPopper, Search, User, ShoppingBag } from "lucide-react"
 import { Button } from "../../components/ui/button"
+import { CustomLogo } from "../../components/custom/CustomLogo"
 
 const navLinks = [
   { label: "Iluminación", href: "#" },
@@ -13,14 +14,7 @@ export function Header() {
     <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 h-16 shrink-0">
       <div className="h-full px-6 flex items-center justify-between max-w-[1920px] mx-auto">
         {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="size-8 text-primary flex items-center justify-center">
-            <PartyPopper className="size-7" />
-          </div>
-          <h1 className="text-xl font-bold tracking-tight text-text-dark dark:text-white">
-            BookIt
-          </h1>
-        </div>
+        <CustomLogo subTitle="BookIt"/>
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center gap-8">

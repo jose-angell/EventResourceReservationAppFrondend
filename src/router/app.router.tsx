@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import HomePage from '../bookit/pages/HomePages';
 import { BookitLayout } from "../bookit/layouts/BookitLayout";
-import Checkout from "../bookit/pages/Checkout";
 import AuthLayout from "../auth/layouts/AuthLayout";
 import LoginPage from "../auth/pages/LoginPage";
 import RegisterPage from "../auth/pages/RegisterPage";
@@ -14,6 +13,7 @@ import DashboardProfile from "../bookit/dashboardClient/Profile";
 import DashboardPayment from "../bookit/dashboardClient/Payment";
 import DashboardSecurity from "../bookit/dashboardClient/Security";
 import { ProductDetail } from "../bookit/Components/ProductDetail";
+import { Checkout } from "../bookit/pages/Checkout";
 
 
 export const AppRouter = createBrowserRouter([
