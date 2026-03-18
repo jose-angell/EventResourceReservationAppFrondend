@@ -1,7 +1,11 @@
-import { ChevronRight, Heart, Plus, Shield, ShoppingCart, Truck } from 'lucide-react';
+import {  ChevronRight, Heart, Plus, Shield, ShoppingCart, Truck } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { Button } from '../../components/ui/button';
+import { addDays, format } from 'date-fns';
+import type { DateRange } from 'react-day-picker';
+import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
+import { Calendar } from '../../components/ui/calendar';
 
 const productData: Record<string, {
   id: number;
@@ -170,14 +174,17 @@ export function ProductDetail() {
 
   const incrementQuantity = () => setQuantity(prev => prev + 1);
   const decrementQuantity = () => setQuantity(prev => Math.max(1, prev - 1));
-
+const [date, setDate] = useState<DateRange | undefined>({
+    from: new Date(),
+    to: addDays(new Date(), 3),
+  });
   return (
     <div className="min-h-screen bg-surface-light flex flex-col font-display">
      
 
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
-        <div className="max-w-[1400px] mx-auto px-6 py-6">
+        <div className="max-w-350 mx-auto px-6 py-6">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-wider">
             <Link to="/" className="hover:text-primary">Home</Link>
@@ -191,7 +198,7 @@ export function ProductDetail() {
             {/* Left Column - Images */}
             <div className="lg:col-span-7 space-y-6">
               {/* Main Image */}
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+              <div className="aspect-4/3 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
                 <img
                   alt={product.title}
                   className="w-full h-full object-cover"
@@ -346,8 +353,48 @@ export function ProductDetail() {
                       </button>
                     </div>
                   </div>
+                 <Popover>
+                <PopoverTrigger
+                    render={
+                    <button className="w-full group outline-none cursor-pointer">
+                        <div className="grid grid-cols-2 gap-4">
+                        {/* Cuadro: DESDE */}
+                        <div className="p-4 border border-slate-100 dark:border-slate-800 rounded-xl bg-slate-50/50 dark:bg-slate-900/50 text-left transition-colors group-hover:border-slate-200 dark:group-hover:border-slate-700">
+                            <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
+                            Desde
+                            </span>
+                            <span className="text-sm font-bold text-text-dark dark:text-white">
+                            {date?.from ? format(date.from, "dd MMM, y") : "Seleccionar"}
+                            </span>
+                        </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                        {/* Cuadro: HASTA */}
+                        <div className="p-4 border border-slate-100 dark:border-slate-800 rounded-xl bg-slate-50/50 dark:bg-slate-900/50 text-left transition-colors group-hover:border-slate-200 dark:group-hover:border-slate-700">
+                            <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
+                            Hasta
+                            </span>
+                            <span className="text-sm font-bold text-text-dark dark:text-white">
+                            {date?.to ? format(date.to, "dd MMM, y") : "Seleccionar"}
+                            </span>
+                        </div>
+                        </div>
+                    </button>
+                    }
+                />
+                
+                <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                    initialFocus
+                    mode="range"
+                    defaultMonth={date?.from}
+                    selected={date}
+                    onSelect={setDate}
+                    numberOfMonths={2}
+                    disabled={{ before: new Date() }}
+                    />
+                </PopoverContent>
+                </Popover>
+                  {/* <div className="grid grid-cols-2 gap-4">
                     <div className="p-4 border border-slate-100 rounded-xl bg-slate-50/50">
                       <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Desde</span>
                       <span className="text-sm font-bold">24 Oct, 2023</span>
@@ -356,9 +403,11 @@ export function ProductDetail() {
                       <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Hasta</span>
                       <span className="text-sm font-bold">27 Oct, 2023</span>
                     </div>
-                  </div>
+                  </div> */}
 
-                  <Button className="w-full h-14 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl shadow-lg shadow-secondary/20 transition-all flex items-center justify-center gap-3 text-lg">
+                  <Button 
+                  render={<Link to="/" />}
+                  className="w-full h-14 bg-secondary hover:bg-secondary/90 text-white font-bold rounded-xl shadow-lg shadow-secondary/20 transition-all flex items-center justify-center gap-3 text-lg">
                     <ShoppingCart className="w-5 h-5" />
                     Añadir al Presupuesto
                   </Button>
