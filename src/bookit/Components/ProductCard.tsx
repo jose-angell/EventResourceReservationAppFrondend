@@ -66,7 +66,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
           </div>
           <Button
-          render={<Link to={`/resource/${product.id}`}  />}
+          render={<Link to={`/product/${product.id}`}  />}
           className="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-bold uppercase tracking-wide transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2">
             <span>Reservar ahora</span>
             <ArrowRight className="size-5" />

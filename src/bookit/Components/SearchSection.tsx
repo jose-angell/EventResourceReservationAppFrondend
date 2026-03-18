@@ -46,7 +46,7 @@ export function SearchSection() {
           {/* Selector de Fechas */}
           <Popover>
             <PopoverTrigger render={
-              <button className="flex-[1] flex items-center px-4 h-12 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800 gap-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group outline-none">
+              <button className="flex-1 flex items-center px-4 h-12 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800 gap-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group outline-none">
                 <div className="flex items-center gap-2 flex-1 min-w-max">
                    <CalendarIcon className="size-4 text-slate-400" />
                   <div className="flex flex-col text-left">
