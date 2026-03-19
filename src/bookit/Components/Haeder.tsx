@@ -1,4 +1,4 @@
-import { PartyPopper, Search, User, ShoppingBag } from "lucide-react"
+import { Search, User, ShoppingBag } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { CustomLogo } from "../../components/custom/CustomLogo"
 

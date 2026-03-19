@@ -1,10 +1,14 @@
 import { Input } from "../../components/ui/input"
 import { Button } from "../../components/ui/button"
-import { 
-  Calendar, 
+import {  
   Clock, 
   Shield, 
-  ArrowRight  } from "lucide-react"
+  ArrowRight,  
+  CalendarIcon} from "lucide-react"
+import { useState } from "react"
+import { Popover, PopoverContent, PopoverTrigger } from "../../components/ui/popover"
+import { format } from "date-fns"
+import { Calendar } from "../../components/ui/calendar"
 
 const cartItems = [
   {
@@ -41,6 +45,9 @@ const tax = subtotal * 0.21
 const total = subtotal + tax
 
 export function Checkout() {
+ const [date, setDate] = useState<Date | undefined>(new Date())
+ 
+
   return (
     <div className="min-h-screen bg-surface flex flex-col w-full">
       
@@ -53,40 +60,56 @@ export function Checkout() {
             {/* Shipping Information */}
             <div>
               <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                <span className="bg-primary text-primary-foreground size-8 rounded-full flex items-center justify-center text-sm">1</span>
+                <span className="bg-primary text-white size-8 rounded-full flex items-center justify-center text-sm">1</span>
                 Información de Envío
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-sm font-semibold text-foreground/80 mb-2">Dirección de Entrega</label>
                   <Input 
-                    className="w-full px-4 py-3" 
+                    className="w-full px-4 py-3 bg-white" 
                     placeholder="Calle, número, departamento..." 
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-foreground/80 mb-2">Ciudad / Estado</label>
                   <Input 
-                    className="w-full px-4 py-3" 
+                    className="w-full px-4 py-3 bg-white" 
                     placeholder="Ej. Ciudad de México" 
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-foreground/80 mb-2">Código Postal</label>
                   <Input 
-                    className="w-full px-4 py-3" 
+                    className="w-full px-4 py-3 bg-white" 
                     placeholder="00000" 
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-foreground/80 mb-2">Fecha de Entrega</label>
-                  <div className="relative">
-                    <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground size-5" />
-                    <Input 
-                      className="w-full px-4 py-3 pr-10" 
-                      defaultValue="Oct 24, 2023" 
-                    />
-                  </div>
+                  <Popover>
+                    <PopoverTrigger render={
+                      <button className="relative w-full group outline-none cursor-pointer">
+                        <CalendarIcon className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground size-5 group-hover:text-primary transition-colors z-10" />
+                        <Input 
+                          className="w-full px-4 py-3 pr-12 cursor-pointer bg-background" 
+                          value={date ? format(date, "MMM dd, yyyy") : "Seleccionar fecha"} 
+                          readOnly // Evita que se abra el teclado en móviles
+                        />
+                      </button>
+                    } />
+
+                    <PopoverContent className="w-auto p-0 shadow-2xl border-border" align="end">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        initialFocus
+                        disabled={{ before: new Date() }}
+                        className="rounded-xl border-none"
+                      />
+                    </PopoverContent>
+                  </Popover>
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-foreground/80 mb-2">Hora de Entrega</label>
@@ -105,7 +128,7 @@ export function Checkout() {
             {/* Payment Method */}
             <div className="pt-6 border-t border-border">
               <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                <span className="bg-primary text-primary-foreground size-8 rounded-full flex items-center justify-center text-sm">2</span>
+                <span className="bg-primary text-white size-8 rounded-full flex items-center justify-center text-sm">2</span>
                 Método de Pago
               </h2>
               <div className="space-y-4">
@@ -214,7 +237,7 @@ export function Checkout() {
                   <span className="text-base font-bold text-foreground">Total a Pagar</span>
                   <span className="text-2xl font-extrabold text-accent">${total.toFixed(2)}</span>
                 </div>
-                <Button className="w-full mt-6 py-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-3 group uppercase tracking-widest text-sm">
+                <Button className="w-full mt-6 py-6 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-3 group uppercase tracking-widest text-sm">
                   Confirmar y Pagar
                   <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
