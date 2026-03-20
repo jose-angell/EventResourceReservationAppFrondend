@@ -1,6 +1,6 @@
 import { Outlet } from "react-router"
-import { Header } from "../Components/Haeder"
-import { Footer } from "../Components/Footer"
+import { Header } from "../components/Haeder"
+import { Footer } from "../components/Footer"
 
 
 export const BookitLayout = () => {

@@ -1,6 +1,6 @@
-import { CartSidebar } from "../Components/CartSidebar";
-import { ProductGrid } from "../Components/ProductGrid";
-import { SearchSection } from "../Components/SearchSection";
+import { CartSidebar } from "../components/CartSidebar";
+import { ProductGrid } from "../components/ProductGrid";
+import { SearchSection } from "../components/SearchSection";
 
 
 export default function HomePage() {

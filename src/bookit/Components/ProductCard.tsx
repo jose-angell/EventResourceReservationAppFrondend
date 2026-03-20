@@ -1,9 +1,10 @@
 
+import { Link } from "react-router"
 import { Heart, ArrowRight } from "lucide-react"
+
 import { Card } from "../../components/ui/card"
 import { Badge } from "../../components/ui/badge"
 import { Button } from "../../components/ui/button"
-import { Link } from "react-router"
 
 export interface Product {
   id: number

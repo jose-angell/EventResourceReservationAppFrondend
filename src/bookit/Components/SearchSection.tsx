@@ -23,7 +23,7 @@ export function SearchSection() {
     to: addDays(new Date(), 3),
   });
   const [priceRange, setPriceRange] = useState([0, 1000]);
-
+ const [activeCategory, setActiveCategory] = useState("Todos");
   return (
     <section className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 px-6 py-8">
       <div className="max-w-300 mx-auto w-full flex flex-col gap-6">
@@ -86,7 +86,7 @@ export function SearchSection() {
 
         {/* Categorías y Filtro de Precio */}
         <div className="flex items-center gap-3 overflow-x-auto pb-2">
-          {categories.map((category, index) => {
+          {categories.map((category) => {
             if (category === "Rango de precios") {
               return (
                 <Popover key={category}>
@@ -121,15 +121,18 @@ export function SearchSection() {
                 </Popover>
               );
             }
-
+            const isActive = activeCategory === category;
             return (
               <button
-                key={category}
-                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-                  index === 0
-                    ? "bg-text-dark text-white dark:bg-white dark:text-text-dark font-bold shadow-md"
-                    : "bg-white border border-slate-200 text-slate-600 hover:border-slate-300 dark:bg-surface-dark dark:border-slate-700 dark:text-slate-300"
-                }`}
+               key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`
+                  px-5 py-2.5 rounded-full whitespace-nowrap text-sm font-medium transition-all duration-200 snap-start
+                  ${isActive 
+                    ? 'bg-slate-900 text-white shadow-md transform scale-105 dark:bg-white dark:text-slate-900' 
+                      : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300'
+                  }
+                `}
               >
                 {category}
               </button>

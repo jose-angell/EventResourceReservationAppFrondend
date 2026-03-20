@@ -13,7 +13,7 @@ const navLinks = [
 export function Header() {
   return (
     <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 h-16 shrink-0">
-      <div className="h-full px-6 flex items-center justify-between max-w-[1920px] mx-auto">
+      <div className="h-full px-6 flex items-center justify-between max-w-480 mx-auto">
         {/* Logo */}
         <CustomLogo subTitle="BookIt"/>
 

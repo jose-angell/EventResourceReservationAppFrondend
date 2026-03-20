@@ -8,7 +8,7 @@ import RegisterPage from "../auth/pages/RegisterPage";
 // bookit
 import HomePage from '../bookit/pages/HomePages';
 import { BookitLayout } from "../bookit/layouts/BookitLayout";
-import { ProductDetail } from "../bookit/Components/ProductDetail";
+import { ProductDetail } from "../bookit/components/ProductDetail";
 import { Checkout } from "../bookit/pages/Checkout";
 
 // user

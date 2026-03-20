@@ -1,4 +1,5 @@
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
+
 import { ProductCard, type Product } from "./ProductCard"
 
 const products: Product[] = [

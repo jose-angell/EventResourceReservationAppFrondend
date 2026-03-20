@@ -1,8 +1,10 @@
-import { Receipt, Calendar, ArrowRight, Lock } from "lucide-react"
-import { Button } from "../../components/ui/button"
-import { CartItemSidebar } from "./CarItemSidebar"
-import { useState } from "react"
 import { Link } from "react-router"
+import { useState } from "react"
+import { Receipt, Calendar, ArrowRight, Lock } from "lucide-react"
+
+import { Button } from "../../components/ui/button"
+
+import { CartItemSidebar } from "./CarItemSidebar"
 
 interface CartItem {
   id: number
