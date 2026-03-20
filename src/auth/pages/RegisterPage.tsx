@@ -14,6 +14,7 @@ import { Input } from "../../components/ui/input"
 import { Label } from "../../components/ui/label"
 import { Button } from "../../components/ui/button"
 import { Checkbox } from "../../components/ui/checkbox"
+import { Link } from "react-router"
 
 export interface SignUpProps {
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -27,7 +28,7 @@ export interface SignUpProps {
 //     if (onSubmit) onSubmit(e);
 //   };
 
-export default function Register() {
+export default function RegisterPage() {
   return (
     <div className="bg-background-light dark:bg-background-dark text-text-dark dark:text-slate-100 min-h-screen flex items-center justify-center p-4 font-body">
       <div className="w-full max-w-2xl">
@@ -199,7 +200,7 @@ export default function Register() {
           <div className="px-8 py-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800 text-center">
             <p className="text-sm text-slate-600 dark:text-slate-400">
               ¿Ya tienes cuenta? 
-              <a className="text-accent font-bold hover:underline ml-1" href="/login">Inicia sesión</a>
+              <Link to="/auth/login" className="text-accent font-bold hover:underline ml-1" >Inicia sesión</Link>
             </p>
           </div>
         </div>

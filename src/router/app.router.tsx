@@ -37,12 +37,12 @@ export const AppRouter = createBrowserRouter([
     },
     // Auth routes
     {
-        path:'/auth',
+        path: "/auth",
         element: <AuthLayout/>,
         children: [
             {
-                index: true,
-                element: <Navigate to="/auth/loing"/>
+                index:true,
+                element: <Navigate to='/auth/login'/>
             },
             {
                 path: 'login',
