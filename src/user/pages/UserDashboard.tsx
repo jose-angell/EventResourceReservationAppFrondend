@@ -1,14 +1,12 @@
 import { 
-  Search, CircleUser, ShoppingBag, 
-  LayoutDashboard, Shield, CreditCard, History, 
-  LogOut, Camera, MapPin, Phone, Pencil, 
+ ShoppingBag, 
+   Camera, MapPin, Phone, Pencil, 
   FileText, Heart, ChevronLeft, ChevronRight, X 
 } from "lucide-react"
 import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
-import { CustomLogo } from "../../components/custom/CustomLogo";
 
 // Importaciones de shadcn/ui
 
@@ -76,80 +74,7 @@ export default function UserDashboard() {
   };
 
   return (
-    <div className="bg-surface-light dark:bg-background-dark text-text-dark dark:text-slate-100 font-body antialiased min-h-screen flex flex-col overflow-hidden">
-      
-      {/* --- HEADER --- */}
-      <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30 h-16 shrink-0">
-        <div className="h-full px-6 flex items-center justify-between max-w-[1920px] mx-auto">
-          {/* Logo */}
-          <CustomLogo subTitle="BookIt"/>
-
-          {/* Navegación Desktop */}
-          <nav className="hidden md:flex items-center gap-8">
-            {["Iluminación", "Mobiliario", "Sonido", "Decoración"].map((item) => (
-              <a key={item} href="#" className="text-sm font-medium text-slate-600 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors">
-                {item}
-              </a>
-            ))}
-          </nav>
-
-          {/* Acciones Header */}
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon" className="rounded-full text-slate-600 dark:text-slate-300">
-              <Search className="size-5" />
-            </Button>
-            <Button variant="secondary" size="icon" className="rounded-full bg-slate-100 dark:bg-slate-700 text-primary">
-              <CircleUser className="size-5" />
-            </Button>
-            {/* Botón Carrito Mobile */}
-            <div className="lg:hidden">
-              <Button variant="ghost" size="icon" className="relative rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
-                <ShoppingBag className="size-5" />
-                <span className="absolute top-1 right-1 size-2.5 bg-accent rounded-full border-2 border-white dark:border-surface-dark"></span>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* --- MAIN LAYOUT --- */}
-      <main className="flex flex-1 h-[calc(100vh-64px)] overflow-hidden max-w-[1920px] mx-auto w-full">
-        
-        {/* SIDEBAR */}
-        <aside className="w-64 bg-white dark:bg-surface-dark border-r border-slate-200 dark:border-slate-800 hidden md:flex flex-col shrink-0 overflow-y-auto">
-          <div className="p-6">
-            <h2 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-4">Mi Cuenta</h2>
-            <nav className="space-y-1">
-              <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary font-bold transition-colors">
-                <LayoutDashboard className="size-5" />
-                <span>Mi Panel</span>
-              </a>
-              <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-primary transition-colors group">
-                <ShoppingBag className="size-5 group-hover:text-primary transition-colors" />
-                <span>Mis Pedidos</span>
-              </a>
-              <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-primary transition-colors group">
-                <Shield className="size-5 group-hover:text-primary transition-colors" />
-                <span>Seguridad</span>
-              </a>
-              <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-primary transition-colors group">
-                <CreditCard className="size-5 group-hover:text-primary transition-colors" />
-                <span>Métodos de Pago</span>
-              </a>
-              <a href="#" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-primary transition-colors group">
-                <History className="size-5 group-hover:text-primary transition-colors" />
-                <span>Historial</span>
-              </a>
-            </nav>
-          </div>
-          <div className="mt-auto p-6 border-t border-slate-100 dark:border-slate-800">
-            <button className="flex items-center gap-3 px-3 py-2.5 w-full rounded-lg text-alert hover:bg-alert/5 transition-colors">
-              <LogOut className="size-5" />
-              <span className="font-medium">Cerrar Sesión</span>
-            </button>
-          </div>
-        </aside>
-
+    <>
         {/* CONTENIDO PRINCIPAL */}
         <div className="flex-1 overflow-y-auto p-6 lg:p-10">
           <div className="max-w-5xl mx-auto space-y-8">
@@ -273,7 +198,6 @@ export default function UserDashboard() {
 
           </div>
         </div>
-      </main>
-    </div>
+      </>
   )
 }
