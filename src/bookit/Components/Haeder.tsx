@@ -1,6 +1,7 @@
 import { Search, User, ShoppingBag } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { CustomLogo } from "../../components/custom/CustomLogo"
+import { Link } from "react-router"
 
 const navLinks = [
   { label: "Iluminación", href: "#" },
@@ -34,11 +35,13 @@ export function Header() {
           <Button variant="ghost" size="icon" className="text-slate-600 dark:text-slate-300">
             <Search className="size-5" />
           </Button>
-          <Button variant="ghost" size="icon" className="text-slate-600 dark:text-slate-300">
+          <Button 
+          render={<Link to={"/user"}/>}
+          variant="ghost" size="icon" className="text-slate-600 dark:text-slate-300">
             <User className="size-5" />
           </Button>
           <div className="lg:hidden">
-            <Button
+            <Button        
               variant="ghost"
               size="icon"
               className="relative bg-primary/10 text-primary hover:bg-primary/20"

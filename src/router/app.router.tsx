@@ -1,19 +1,19 @@
 import { createBrowserRouter, Navigate } from "react-router";
-import HomePage from '../bookit/pages/HomePages';
-import { BookitLayout } from "../bookit/layouts/BookitLayout";
+
+// auth
 import AuthLayout from "../auth/layouts/AuthLayout";
 import LoginPage from "../auth/pages/LoginPage";
 import RegisterPage from "../auth/pages/RegisterPage";
-import DashboardLayout from "../bookit/pages/profileClient/DashboardClient";
-import DashboardOrders from "../bookit/dashboardClient/Orders";
-import OrdersDetails from "../bookit/dashboardClient/OrdersDetails";
-import DashboardHistory from "../bookit/dashboardClient/History";
-import DashboardPanel from "../bookit/dashboardClient/Panel";
-import DashboardProfile from "../bookit/dashboardClient/Profile";
-import DashboardPayment from "../bookit/dashboardClient/Payment";
-import DashboardSecurity from "../bookit/dashboardClient/Security";
+
+// bookit
+import HomePage from '../bookit/pages/HomePages';
+import { BookitLayout } from "../bookit/layouts/BookitLayout";
 import { ProductDetail } from "../bookit/Components/ProductDetail";
 import { Checkout } from "../bookit/pages/Checkout";
+
+// user
+import { UserLayout } from "../user/layouts/UserLayout";
+import UserDashboard from "../user/pages/UserDashboard";
 
 
 export const AppRouter = createBrowserRouter([
@@ -54,38 +54,14 @@ export const AppRouter = createBrowserRouter([
             },
         ]
     },
-    // profile client routes
+    // user routes
     {
-        path:'/profile',
-        element: <DashboardLayout/>,
+        path:'/user',
+        element: <UserLayout/>,
         children: [
             {
                 index: true,
-                element: <DashboardPanel />
-            },
-            {
-                path: 'orders',
-                element: <DashboardOrders/>
-            },
-             {
-                path: 'orders/:id',
-                element: <OrdersDetails/>
-            },
-            {
-                path: 'history',
-                element: <DashboardHistory/>
-            },
-            {
-                path: 'client',
-                element: <DashboardProfile/>
-            },
-            {
-                path: 'payment-methods',
-                element: <DashboardPayment/>
-            },
-            {
-                path: 'security',
-                element: <DashboardSecurity/>
+                element: <UserDashboard />
             },
             
         ]
