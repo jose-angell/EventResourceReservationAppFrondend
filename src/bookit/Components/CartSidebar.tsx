@@ -44,7 +44,7 @@ const cartItems: CartItem[] = [
 
 const rentalDays = 3
 
-export function CartSidebar() {
+export const CartSidebar = () => {
   const [items, setItems] = useState<CartItem[]>(cartItems);
   const subtotalPerDay = items.reduce(
     (acc, item) => acc + item.pricePerDay * item.quantity,

@@ -7,6 +7,7 @@ import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../components/ui/table";
 import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar";
+import { Link } from "react-router";
 
 // Importaciones de shadcn/ui
 
@@ -58,7 +59,7 @@ const mockWishlist: WishlistItem[] = [
   }
 ];
 
-export default function UserDashboard() {
+export const UserDashboard = () => {
   // Función helper para el color de los badges según estado
   const getStatusBadge = (status: Order["status"]) => {
     switch (status) {
@@ -109,7 +110,9 @@ export default function UserDashboard() {
               </div>
 
               <div className="flex items-center z-10">
-                <Button className="bg-primary hover:bg-primary-dark text-white font-bold text-sm shadow-md shadow-primary/20">
+                <Button 
+                render={<Link to={'/user/user-profile'}/>}
+                className="bg-primary hover:bg-primary-dark text-white font-bold text-sm shadow-md shadow-primary/20">
                   <Pencil className="size-4 mr-2" />
                   Editar Datos
                 </Button>

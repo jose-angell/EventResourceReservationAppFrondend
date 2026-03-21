@@ -17,7 +17,7 @@ const categories = [
   "Carpas",
 ]
 
-export function SearchSection() {
+export const SearchSection = () => {
   const [date, setDate] = useState<DateRange | undefined>({
     from: new Date(),
     to: addDays(new Date(), 3),

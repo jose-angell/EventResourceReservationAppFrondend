@@ -165,7 +165,7 @@ const relatedProducts = [
   { id: 5, title: "Mantel Lino Crudo", description: "Lino natural 3.2m.", price: 12.00, category: "MANTELERÍA", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCYhoB8KMUZi6EuZ_BktpBXFGeogzlos9meNvGIipA3qOs2Wh-TAFDTT4LsZOV2aklLFRZKA_igNmF2TlB7xlH0kxPf9_vl8_ZY_AT7SzQOSa9NfJcnepDYSH0g3LRS2NtJ-ud44PwcPSmJyFYcRNSuq2U31IfKkdYI0ZqiP7HM0GeEjr7ijpxnz9wBw0OCtgRyfr9QsY79ZZ9U7tUKHUeA6jKO48QEg0SU2X7rDnw_4zHROx33F8-xrIo8GobcpIRzb3hsMKkmmqSt" }
 ];
 
-export function ProductDetail() {
+export const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(50);

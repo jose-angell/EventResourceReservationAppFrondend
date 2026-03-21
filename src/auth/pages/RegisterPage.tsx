@@ -28,7 +28,7 @@ export interface SignUpProps {
 //     if (onSubmit) onSubmit(e);
 //   };
 
-export default function RegisterPage() {
+export const RegisterPage = () => {
   return (
     <div className="bg-background-light dark:bg-background-dark text-text-dark dark:text-slate-100 min-h-screen flex items-center justify-center p-4 font-body">
       <div className="w-full max-w-2xl">

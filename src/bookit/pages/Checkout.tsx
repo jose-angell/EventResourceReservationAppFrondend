@@ -44,7 +44,7 @@ const subtotal = cartItems.reduce((acc, item) => acc + item.total, 0)
 const tax = subtotal * 0.21
 const total = subtotal + tax
 
-export function Checkout() {
+export const Checkout = () => {
  const [date, setDate] = useState<Date | undefined>(new Date())
  
 

@@ -2,8 +2,9 @@ import { createBrowserRouter, Navigate } from "react-router";
 
 // auth
 import AuthLayout from "../auth/layouts/AuthLayout";
-import LoginPage from "../auth/pages/LoginPage";
-import RegisterPage from "../auth/pages/RegisterPage";
+import { LoginPage } from "../auth/pages/LoginPage";
+import { RegisterPage } from "../auth/pages/RegisterPage";
+
 
 // bookit
 import HomePage from '../bookit/pages/HomePages';
@@ -13,7 +14,8 @@ import { Checkout } from "../bookit/pages/Checkout";
 
 // user
 import { UserLayout } from "../user/layouts/UserLayout";
-import UserDashboard from "../user/pages/UserDashboard";
+import { UserDashboard } from "../user/pages/UserDashboard";
+import { UserProfile } from "../user/components/UserProfile";
 
 
 export const AppRouter = createBrowserRouter([
@@ -63,6 +65,10 @@ export const AppRouter = createBrowserRouter([
                 index: true,
                 element: <UserDashboard />
             },
+            {
+                path: 'user-profile',
+                element: <UserProfile/>
+            }
             
         ]
     },

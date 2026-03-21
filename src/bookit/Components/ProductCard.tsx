@@ -20,7 +20,7 @@ interface ProductCardProps {
   product: Product
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Card className="group hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 flex flex-col h-full">
       {/* Image */}

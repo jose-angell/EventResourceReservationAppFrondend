@@ -59,7 +59,7 @@ const products: Product[] = [
   },
 ]
 
-export function ProductGrid() {
+export const ProductGrid = () =>{
   return (
     <section className="p-6 md:p-8 max-w-[1200px] mx-auto w-full">
       {/* Header */}

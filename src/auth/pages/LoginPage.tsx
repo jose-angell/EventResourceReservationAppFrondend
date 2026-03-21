@@ -19,12 +19,12 @@ export interface LoginProps {
   onForgotPassword?: () => void;
 }
 
-export default function LoginPage({ 
+export const LoginPage = ({ 
   onSubmit, 
   onGoogleLogin, 
   onAppleLogin,
   onForgotPassword
-}: LoginProps) {
+}: LoginProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (onSubmit) onSubmit(e);
