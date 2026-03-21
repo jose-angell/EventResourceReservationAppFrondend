@@ -16,6 +16,7 @@ import { Checkout } from "../bookit/pages/Checkout";
 import { UserLayout } from "../user/layouts/UserLayout";
 import { UserDashboard } from "../user/pages/UserDashboard";
 import { UserProfile } from "../user/components/UserProfile";
+import { UserOrders } from "../user/components/UserOrders";
 
 
 export const AppRouter = createBrowserRouter([
@@ -68,6 +69,10 @@ export const AppRouter = createBrowserRouter([
             {
                 path: 'user-profile',
                 element: <UserProfile/>
+            },
+            {
+                path: 'user-orders',
+                element: <UserOrders />
             }
             
         ]
