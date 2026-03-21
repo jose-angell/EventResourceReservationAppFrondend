@@ -3,6 +3,7 @@ import {  ChevronDown, FileText, ChevronLeft, ChevronRight, Search } from "lucid
 
 import { Button } from "../../components/ui/button"
 import { Input } from "../../components/ui/input"
+import { Link } from "react-router";
 
 // Definimos la interfaz para TypeScript basada en los datos de tu tabla
 interface Order {
@@ -160,7 +161,9 @@ export const UserOrders = () => {
                                 >
                                 <FileText className="size-5" />
                                 </button>
-                                <Button variant="outline" size="sm" className="h-8 text-xs font-bold border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary text-slate-600 dark:text-slate-300 bg-white dark:bg-transparent">
+                                <Button 
+                                render={<Link to={`/user/order-detail/1`}/>}
+                                variant="outline" size="sm" className="h-8 text-xs font-bold border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary text-slate-600 dark:text-slate-300 bg-white dark:bg-transparent">
                                 Ver Detalles
                                 </Button>
                             </div>

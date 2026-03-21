@@ -17,6 +17,7 @@ import { UserLayout } from "../user/layouts/UserLayout";
 import { UserDashboard } from "../user/pages/UserDashboard";
 import { UserProfile } from "../user/components/UserProfile";
 import { UserOrders } from "../user/components/UserOrders";
+import { UserOrderDetail } from "../user/components/UserOrderDetail";
 
 
 export const AppRouter = createBrowserRouter([
@@ -67,13 +68,16 @@ export const AppRouter = createBrowserRouter([
                 element: <UserDashboard />
             },
             {
-                path: 'user-profile',
+                path: 'profile',
                 element: <UserProfile/>
             },
             {
-                path: 'user-orders',
+                path: 'orders',
                 element: <UserOrders />
-            }
+            },
+            {
+                path: 'order-detail/:id',
+                element: <UserOrderDetail/>            }
             
         ]
     },

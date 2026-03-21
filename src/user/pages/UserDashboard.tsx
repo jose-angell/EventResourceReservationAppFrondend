@@ -111,7 +111,7 @@ export const UserDashboard = () => {
 
               <div className="flex items-center z-10">
                 <Button 
-                render={<Link to={'/user/user-profile'}/>}
+                render={<Link to={'/user/profile'}/>}
                 className="bg-primary hover:bg-primary-dark text-white font-bold text-sm shadow-md shadow-primary/20">
                   <Pencil className="size-4 mr-2" />
                   Editar Datos

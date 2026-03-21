@@ -11,7 +11,7 @@ export const UserSidebar = () => {
                 <LayoutDashboard className="size-5" />
                 <span>Mi Panel</span>
               </Link>
-              <Link to={"/user/user-orders"} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-primary transition-colors group">
+              <Link to={"/user/orders"} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-primary transition-colors group">
                 <ShoppingBag className="size-5 group-hover:text-primary transition-colors" />
                 <span>Mis Pedidos</span>
               </Link>
