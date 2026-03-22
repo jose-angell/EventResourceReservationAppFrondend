@@ -18,6 +18,8 @@ import { UserDashboard } from "../user/pages/UserDashboard";
 import { UserProfile } from "../user/components/UserProfile";
 import { UserOrders } from "../user/components/UserOrders";
 import { UserOrderDetail } from "../user/components/UserOrderDetail";
+import { AdminLayout } from "../admin/layouts/AdminLayout";
+import { AdminDashboard } from "../admin/pages/AdminDashboard";
 
 
 export const AppRouter = createBrowserRouter([
@@ -79,6 +81,16 @@ export const AppRouter = createBrowserRouter([
                 path: 'order-detail/:id',
                 element: <UserOrderDetail/>            }
             
+        ]
+    },
+    {
+        path: '/admin',
+        element: <AdminLayout />,
+        children: [
+            {
+                index: true,
+                element: <AdminDashboard/>
+            }
         ]
     },
     {
