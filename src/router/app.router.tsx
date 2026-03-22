@@ -25,6 +25,7 @@ import { AdminDashboard } from "../admin/pages/AdminDashboard";
 import { AdminProduct } from "../admin/components/AdminProduct";
 import { ProductForm } from "../admin/components/ProductForm";
 import { AdminReservations } from "../admin/components/AdminReservations";
+import { AdminReservationDetail } from "../admin/components/AdminReservationDetail";
 
 
 export const AppRouter = createBrowserRouter([
@@ -107,6 +108,10 @@ export const AppRouter = createBrowserRouter([
             {
                 path: 'reservations',
                 element: <AdminReservations />
+            },
+            {
+                path: 'reservation-detail/:id',
+                element: <AdminReservationDetail />
             }
         ]
     },

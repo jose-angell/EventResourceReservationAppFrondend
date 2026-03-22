@@ -1,4 +1,6 @@
+import { Button } from "@base-ui/react";
 import {  Search, Filter, Eye, MoreVertical, ChevronLeft, ChevronRight } from "lucide-react"
+import { Link } from "react-router";
 
 // --- TIPOS ---
 type ReservationStatus = 'confirmado' | 'pendiente' | 'cancelado' | 'camino';
@@ -177,9 +179,9 @@ export const AdminReservations = () => {
                         </td>
                         <td className="px-6 py-4 text-right">
                           <div className="flex items-center justify-end gap-3">
-                            <button className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-dark hover:bg-primary/10 px-3 py-1.5 rounded-md border border-primary/20 transition-colors">
+                            <Button render={<Link to={'/admin/reservation-detail/1'}/>} className="inline-flex items-center gap-1 text-xs font-medium text-primary hover:text-primary-dark hover:bg-primary/10 px-3 py-1.5 rounded-md border border-primary/20 transition-colors">
                               <Eye className="size-4" /> Ver Detalles
-                            </button>
+                            </Button>
                             <button className="p-1.5 text-slate-400 hover:text-text-dark dark:hover:text-white rounded hover:bg-slate-100 dark:hover:bg-slate-700">
                               <MoreVertical className="size-5" />
                             </button>
