@@ -3,7 +3,7 @@ import {
   ArrowLeft, FileText, DollarSign, Image as ImageIcon, 
   CloudUpload, Save
 } from "lucide-react"
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 
 // --- TIPOS ---
 interface ProductFormData {
@@ -17,7 +17,10 @@ interface ProductFormData {
 
 
 export const ProductForm = () => {
+//  const {id} = useParams();
 
+//  const title = id === 'new' ? 'Nuevo Recurso' : 'Editar Recurso';
+//  const subTitle = id === 'new' ? 'Aqui puedes crear un nuevo recurso' : 'Aqui puedes editar el recurso';
 
   // Estado inicial del formulario
   const [formData, setFormData] = React.useState<ProductFormData>({

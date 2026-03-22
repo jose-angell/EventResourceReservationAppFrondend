@@ -1,7 +1,8 @@
 import * as React from "react"
 import { 
   Search, Edit, Trash2, ChevronLeft, ChevronRight,
-  Armchair, Square, Speaker, Lightbulb, Mic
+  Armchair, Square, Speaker, Lightbulb, Mic,
+  Plus
 } from "lucide-react"
 import { Button } from "@base-ui/react";
 import { Link } from "react-router";
@@ -48,7 +49,18 @@ export const AdminProduct = () => {
     <>
         <main className="flex-1 overflow-y-auto bg-surface-light dark:bg-background-dark p-6">
           <div className="max-w-7xl mx-auto space-y-6">
-            
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div>
+                <h3 className="text-2xl font-bold text-text-dark dark:text-white">Todas los Recursos</h3>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Gestiona y supervisa los recursos existentes.</p>
+              </div>
+              <Button
+              render={<Link to={'/admin/product/new'}/>}
+              className="bg-primary hover:bg-primary-dark text-white px-4 py-2.5 rounded-lg font-medium flex items-center gap-2 transition-colors shadow-sm shadow-primary/30">
+                <Plus className="size-5" />
+                Nuevo Producto
+              </Button>
+            </div>
             {/* Filtros y Búsqueda */}
             <div className="bg-white dark:bg-surface-dark p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col md:flex-row gap-4 justify-between items-center">
               <div className="relative w-full md:w-96">
@@ -60,9 +72,6 @@ export const AdminProduct = () => {
                 />
               </div>
               <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                <Button
-                render={<Link to={'/admin/product'}/>}
-                className="px-3 py-1.5 bg-primary text-white rounded-lg text-sm font-medium"> Agregar </Button>
                 <select className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-sm py-2 pl-3 pr-8 focus:ring-primary focus:border-primary outline-none">
                   <option value="">Todas las Categorías</option>
                   <option value="mobiliario">Mobiliario</option>

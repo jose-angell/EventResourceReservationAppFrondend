@@ -16,11 +16,15 @@ import { Checkout } from "../bookit/pages/Checkout";
 import { UserLayout } from "../user/layouts/UserLayout";
 import { UserDashboard } from "../user/pages/UserDashboard";
 import { UserProfile } from "../user/components/UserProfile";
-import { UserOrders } from "../user/components/UserOrders";
-import { UserOrderDetail } from "../user/components/UserOrderDetail";
+import { UserReservations } from "../user/components/UserReservations";
+import { UserReservationDetail } from "../user/components/UserReservationDetail";
+
+// admin
 import { AdminLayout } from "../admin/layouts/AdminLayout";
 import { AdminDashboard } from "../admin/pages/AdminDashboard";
 import { AdminProduct } from "../admin/components/AdminProduct";
+import { ProductForm } from "../admin/components/ProductForm";
+import { AdminReservations } from "../admin/components/AdminReservations";
 
 
 export const AppRouter = createBrowserRouter([
@@ -75,12 +79,12 @@ export const AppRouter = createBrowserRouter([
                 element: <UserProfile/>
             },
             {
-                path: 'orders',
-                element: <UserOrders />
+                path: 'reservations',
+                element: <UserReservations />
             },
             {
-                path: 'order-detail/:id',
-                element: <UserOrderDetail/>            }
+                path: 'reservation-detail/:id',
+                element: <UserReservationDetail/>            }
             
         ]
     },
@@ -93,8 +97,16 @@ export const AppRouter = createBrowserRouter([
                 element: <AdminDashboard/>
             },
             {
-                path: 'produts',
+                path: 'products',
                 element: <AdminProduct />
+            },
+            {
+                path: 'product/:id',
+                element: <ProductForm />
+            },
+            {
+                path: 'reservations',
+                element: <AdminReservations />
             }
         ]
     },

@@ -18,12 +18,12 @@ export const AdminSidebar = () => {
           <Link to={'/admin'} className="flex items-center gap-3 px-3 py-2.5 bg-primary/20 text-secondary rounded-lg font-medium transition-colors">
             <LayoutDashboard className="size-5" /> Dashboard
           </Link>
-          <Link to={'/admin/produts'} className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
+          <Link to={'/admin/products'} className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <Package className="size-5" /> Inventario
           </Link>
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
+          <Link to={'/admin/reservations'} className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <CalendarDays className="size-5" /> Reservas
-          </a>
+          </Link>
           <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <Users className="size-5" /> Clientes
           </a>
