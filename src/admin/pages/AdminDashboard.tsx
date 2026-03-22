@@ -1,7 +1,6 @@
 import * as React from "react"
 import { 
-  PartyPopper, LayoutDashboard, Package, CalendarDays, Users, BarChart3, 
-  User, Menu, Bell, TrendingUp, CircleDollarSign, CalendarCheck, 
+TrendingUp, CircleDollarSign, CalendarCheck, 
   UserPlus, AlertTriangle, Info, ChevronLeft, ChevronRight 
 } from "lucide-react"
 
@@ -89,75 +88,16 @@ const getStatusBadge = (status: Order["status"]) => {
 
 export const AdminDashboard = () => {
   return (
-    <div className="bg-surface-light dark:bg-surface-dark text-text-dark dark:text-slate-100 font-display antialiased min-h-screen flex overflow-hidden">
+    <>
       
       {/* --- SIDEBAR ADMIN --- */}
-      <aside className="w-64 bg-background-dark text-white flex-shrink-0 flex-col transition-all duration-300 z-30 hidden lg:flex">
-        <div className="h-16 flex items-center px-6 border-b border-slate-700/50">
-          <div className="flex items-center gap-3">
-            <div className="size-8 text-secondary flex items-center justify-center">
-              <PartyPopper className="size-6" />
-            </div>
-            <h1 className="text-xl font-bold tracking-tight">BookIt Admin</h1>
-          </div>
-        </div>
-        
-        <nav className="flex-1 overflow-y-auto py-6 px-3 space-y-1">
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 bg-primary/20 text-secondary rounded-lg font-medium transition-colors">
-            <LayoutDashboard className="size-5" /> Dashboard
-          </a>
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
-            <Package className="size-5" /> Inventario
-          </a>
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
-            <CalendarDays className="size-5" /> Reservas
-          </a>
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
-            <Users className="size-5" /> Clientes
-          </a>
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
-            <BarChart3 className="size-5" /> Reportes
-          </a>
-        </nav>
-
-        <div className="p-4 border-t border-slate-700/50">
-          <div className="flex items-center gap-3">
-            <div className="size-9 rounded-full bg-slate-700 flex items-center justify-center">
-              <User className="size-5" />
-            </div>
-            <div>
-              <p className="text-sm font-medium">Admin User</p>
-              <p className="text-xs text-slate-400">admin@bookit.com</p>
-            </div>
-          </div>
-        </div>
-      </aside>
+      
 
       {/* --- CONTENIDO PRINCIPAL --- */}
       <div className="flex-1 flex flex-col h-screen overflow-hidden">
         
         {/* HEADER ADMIN */}
-        <header className="bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 h-16 shrink-0 flex items-center justify-between px-6 z-20">
-          <div className="flex items-center gap-4 lg:hidden">
-            <button className="p-2 -ml-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md">
-              <Menu className="size-5" />
-            </button>
-            <div className="font-bold text-lg dark:text-white">BookIt</div>
-          </div>
-          
-          <h2 className="text-xl font-bold text-text-dark dark:text-white hidden lg:block">Panel de Administración</h2>
-          
-          <div className="flex items-center gap-4">
-            <button className="relative p-2 text-slate-400 hover:text-primary transition-colors">
-              <Bell className="size-5" />
-              <span className="absolute top-1.5 right-1.5 size-2 bg-accent rounded-full border border-white dark:border-surface-dark"></span>
-            </button>
-            <div className="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
-            <div className="flex items-center gap-2 cursor-pointer">
-              <div className="size-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">AD</div>
-            </div>
-          </div>
-        </header>
+       
 
         {/* DASHBOARD CONTENT */}
         <main className="flex-1 overflow-y-auto bg-surface-light dark:bg-background-dark p-6">
@@ -311,6 +251,6 @@ export const AdminDashboard = () => {
           </div>
         </main>
       </div>
-    </div>
+    </>
   )
 }
