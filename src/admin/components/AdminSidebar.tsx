@@ -1,4 +1,5 @@
 import { BarChart3, CalendarDays, LayoutDashboard, Package, PartyPopper, User, Users } from 'lucide-react'
+import { Link } from 'react-router'
 
 export const AdminSidebar = () => {
   return (
@@ -14,12 +15,12 @@ export const AdminSidebar = () => {
         </div>
         
         <nav className="flex-1 overflow-y-auto py-6 px-3 space-y-1">
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 bg-primary/20 text-secondary rounded-lg font-medium transition-colors">
+          <Link to={'/admin'} className="flex items-center gap-3 px-3 py-2.5 bg-primary/20 text-secondary rounded-lg font-medium transition-colors">
             <LayoutDashboard className="size-5" /> Dashboard
-          </a>
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
+          </Link>
+          <Link to={'/admin/produts'} className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <Package className="size-5" /> Inventario
-          </a>
+          </Link>
           <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <CalendarDays className="size-5" /> Reservas
           </a>

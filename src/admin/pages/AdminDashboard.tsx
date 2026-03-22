@@ -88,17 +88,7 @@ const getStatusBadge = (status: Order["status"]) => {
 
 export const AdminDashboard = () => {
   return (
-    <>
-      
-      {/* --- SIDEBAR ADMIN --- */}
-      
-
-      {/* --- CONTENIDO PRINCIPAL --- */}
-      <div className="flex-1 flex flex-col h-screen overflow-hidden">
-        
-        {/* HEADER ADMIN */}
-       
-
+      <>
         {/* DASHBOARD CONTENT */}
         <main className="flex-1 overflow-y-auto bg-surface-light dark:bg-background-dark p-6">
           <div className="max-w-7xl mx-auto space-y-6">
@@ -250,7 +240,6 @@ export const AdminDashboard = () => {
             </div>
           </div>
         </main>
-      </div>
-    </>
+      </>
   )
 }

@@ -1,5 +1,4 @@
-import React from 'react'
-import { AdminDashboard } from '../pages/AdminDashboard'
+import { Outlet } from 'react-router'
 import { AdminHeader } from '../components/AdminHeader'
 import { AdminSidebar } from '../components/AdminSidebar'
 
@@ -9,9 +8,7 @@ export const AdminLayout = () => {
         <AdminSidebar />
         <div className="flex-1 flex flex-col h-screen overflow-hidden">
         <AdminHeader />
-        <AdminDashboard/>   
-
-
+        <Outlet />   
         </div>
 
     </div>

@@ -20,6 +20,7 @@ import { UserOrders } from "../user/components/UserOrders";
 import { UserOrderDetail } from "../user/components/UserOrderDetail";
 import { AdminLayout } from "../admin/layouts/AdminLayout";
 import { AdminDashboard } from "../admin/pages/AdminDashboard";
+import { AdminProduct } from "../admin/components/AdminProduct";
 
 
 export const AppRouter = createBrowserRouter([
@@ -90,6 +91,10 @@ export const AppRouter = createBrowserRouter([
             {
                 index: true,
                 element: <AdminDashboard/>
+            },
+            {
+                path: 'produts',
+                element: <AdminProduct />
             }
         ]
     },
