@@ -48,7 +48,7 @@ const MOCK_ITEMS: OrderItem[] = [
   }
 ];
 
-export const UserOrderDetail = () => {
+export const UserReservationDetail = () => {
   return (
     <>
         <div className="flex-1 overflow-y-auto p-6 lg:p-10">

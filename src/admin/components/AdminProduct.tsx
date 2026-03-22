@@ -3,6 +3,8 @@ import {
   Search, Edit, Trash2, ChevronLeft, ChevronRight,
   Armchair, Square, Speaker, Lightbulb, Mic
 } from "lucide-react"
+import { Button } from "@base-ui/react";
+import { Link } from "react-router";
 
 // --- TIPOS E INTERFACES ---
 type StockStatus = "Disponible" | "Bajo Stock" | "Agotado";
@@ -58,6 +60,9 @@ export const AdminProduct = () => {
                 />
               </div>
               <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                <Button
+                render={<Link to={'/admin/product'}/>}
+                className="px-3 py-1.5 bg-primary text-white rounded-lg text-sm font-medium"> Agregar </Button>
                 <select className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark text-sm py-2 pl-3 pr-8 focus:ring-primary focus:border-primary outline-none">
                   <option value="">Todas las Categorías</option>
                   <option value="mobiliario">Mobiliario</option>
@@ -114,9 +119,11 @@ export const AdminProduct = () => {
                           </td>
                           <td className="px-6 py-4">
                             <div className="flex justify-center gap-2">
-                              <button className="p-1.5 text-slate-500 hover:text-primary hover:bg-primary/10 rounded transition-colors" title="Editar">
+                              <Button 
+                              render={<Link to={'/admin/product/1'}/>}
+                              className="p-1.5 text-slate-500 hover:text-primary hover:bg-primary/10 rounded transition-colors" title="Editar">
                                 <Edit className="size-4.5" />
-                              </button>
+                              </Button>
                               <button className="p-1.5 text-slate-500 hover:text-alert hover:bg-alert/10 rounded transition-colors" title="Eliminar">
                                 <Trash2 className="size-4.5" />
                               </button>
