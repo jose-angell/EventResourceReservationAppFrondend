@@ -26,6 +26,8 @@ import { AdminProduct } from "../admin/components/AdminProduct";
 import { ProductForm } from "../admin/components/ProductForm";
 import { AdminReservations } from "../admin/components/AdminReservations";
 import { AdminReservationDetail } from "../admin/components/AdminReservationDetail";
+import { ClientManagement } from "../admin/components/ClientManagment";
+import ClientDetails from "../admin/components/ClientDetails";
 
 
 export const AppRouter = createBrowserRouter([
@@ -112,6 +114,14 @@ export const AppRouter = createBrowserRouter([
             {
                 path: 'reservation-detail/:id',
                 element: <AdminReservationDetail />
+            },
+            {
+                path: 'clients',
+                element: <ClientManagement />
+            },
+            {
+                path: 'client-detail/:id',
+                element: <ClientDetails />
             }
         ]
     },

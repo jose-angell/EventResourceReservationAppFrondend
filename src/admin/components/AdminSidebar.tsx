@@ -24,9 +24,9 @@ export const AdminSidebar = () => {
           <Link to={'/admin/reservations'} className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <CalendarDays className="size-5" /> Reservas
           </Link>
-          <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
+          <Link to={'/admin/clients'} className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <Users className="size-5" /> Clientes
-          </a>
+          </Link>
           <a href="#" className="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-colors">
             <BarChart3 className="size-5" /> Reportes
           </a>
